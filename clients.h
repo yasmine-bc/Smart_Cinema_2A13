@@ -1,11 +1,12 @@
 #ifndef CLIENTS_H
 #define CLIENTS_H
+
 #include <QString>
 #include <QTime>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 
-class Clients
+class clients
 {
     QString nom;
     QString prenom;
@@ -14,9 +15,9 @@ class Clients
     QString reduction;
 
 public:
-    Clients();
-    Clients(QString,QString,QString,int,QString);
-    ~Clients();
+    clients();
+    clients(QString,QString,QString,int,QString);
+    ~clients();
 
     QString getNom(){return nom;}
     QString getPrenom() {return prenom;}

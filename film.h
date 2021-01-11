@@ -1,10 +1,11 @@
 #ifndef FILM_H
 #define FILM_H
+
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 
-class Film
+class film
 {
     QString titre;
     QString date_de_sortie;
@@ -12,9 +13,9 @@ class Film
     QString nom_realisateur;
     QString duree;
 public:
-    Film();
-    Film(QString,QString,QString,QString,QString);
-    ~Film();
+    film();
+    film(QString,QString,QString,QString,QString);
+    ~film();
 
     QString getTitre(){return titre;}
     QString getdate_de_sortie() {return date_de_sortie;}

@@ -6,14 +6,12 @@
 namespace Ui {
 class Widget;
 }
-
 class QCamera;
 class QCameraViewfinder;
 class QCameraImageCapture;
 class QVBoxLayout;
 class QMenu;
 class QAction;
-
 class Widget : public QWidget
 {
     Q_OBJECT

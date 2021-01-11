@@ -3,12 +3,12 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 
-Film::Film()
+film::film()
 {
 
 }
 
-Film::Film(QString t,QString d,QString c,QString n, QString du)
+film::film(QString t,QString d,QString c,QString n, QString du)
 {
    titre= t;
    date_de_sortie=d;
@@ -17,12 +17,12 @@ Film::Film(QString t,QString d,QString c,QString n, QString du)
    duree=du;
 }
 
-Film::~Film()
+film::~film()
 {
 
 }
 
-bool Film::ajouter() // conrole de saisie sur l'ajout et sur le type(date etc)
+bool film::ajouter() // conrole de saisie sur l'ajout et sur le type(date etc)
 {
     QSqlQuery q;
 
@@ -38,7 +38,7 @@ bool Film::ajouter() // conrole de saisie sur l'ajout et sur le type(date etc)
     return q.exec();
 }
 
-QSqlQueryModel * Film:: afficher()
+QSqlQueryModel * film:: afficher()
 {
     QSqlQueryModel *model=new QSqlQueryModel();
 
@@ -53,7 +53,7 @@ QSqlQueryModel * Film:: afficher()
 
 }
 
-QSqlQueryModel * Film::afficher_ComboBox()
+QSqlQueryModel * film::afficher_ComboBox()
 {
     QSqlQueryModel * m= new QSqlQueryModel();
 
@@ -63,7 +63,7 @@ QSqlQueryModel * Film::afficher_ComboBox()
     return m;
 }
 
-bool Film::supprimer(QString titre)
+bool film::supprimer(QString titre)
 {
 
     QSqlQuery q;
@@ -72,7 +72,7 @@ bool Film::supprimer(QString titre)
     return    q.exec();
 }
 
-bool Film::modifier(QString titre, QString date_de_sortie, QString categorie,QString nom_realisateur, QString duree)
+bool film::modifier(QString titre, QString date_de_sortie, QString categorie,QString nom_realisateur, QString duree)
 {
 
     QSqlQuery q;
@@ -87,7 +87,7 @@ bool Film::modifier(QString titre, QString date_de_sortie, QString categorie,QSt
 
 }
 
-bool Film::recherche(QString titre)
+bool film::recherche(QString titre)
 {
     QSqlQuery q;
              q.prepare("Select * from Film where titre= :titre");//verifier avec la base
@@ -99,7 +99,7 @@ bool Film::recherche(QString titre)
          return  true;
 }
 
-QSqlQueryModel * Film::trier()
+QSqlQueryModel * film::trier()
 {
 
    QSqlQueryModel * model= new QSqlQueryModel();
@@ -114,7 +114,7 @@ QSqlQueryModel * Film::trier()
 }
 
 
-QSqlQueryModel * Film::trierdesc()
+QSqlQueryModel * film::trierdesc()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
         model->setQuery("select * from film order by titre  DESC");

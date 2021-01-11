@@ -6,7 +6,7 @@
 #include <QSqlQuery>
 
 statistique_clients::statistique_clients(QWidget *parent) :
-    QDialog(parent),
+    QWidget(parent),
     ui(new Ui::statistique_clients)
 {
     ui->setupUi(this);
@@ -32,7 +32,6 @@ statistique_clients::statistique_clients(QWidget *parent) :
             chart->setTitle("STATS des clients");
              QChartView *chartview= new QChartView(chart);
              chartview->setParent(ui->horizontalFrame);
-
 }
 
 statistique_clients::~statistique_clients()

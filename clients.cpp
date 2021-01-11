@@ -2,17 +2,18 @@
 #include <QDate>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
-Clients::Clients()
+
+clients::clients()
 {
 
 }
 
-Clients::~Clients()
+clients::~clients()
 {
 
 }
 
-Clients::Clients(QString n,QString p,QString d,int pts,QString reduc)
+clients::clients(QString n,QString p,QString d,int pts,QString reduc)
 {
   nom=n;
   prenom=p;
@@ -22,7 +23,7 @@ Clients::Clients(QString n,QString p,QString d,int pts,QString reduc)
 
 }
 
-bool Clients::ajouterC()
+bool clients::ajouterC()
 {
     QSqlQuery q;
 
@@ -38,7 +39,7 @@ bool Clients::ajouterC()
     return q.exec();
 }
 
-QSqlQueryModel * Clients::afficherC()
+QSqlQueryModel * clients::afficherC()
 {
     QSqlQueryModel *model=new QSqlQueryModel();
 
@@ -52,7 +53,7 @@ QSqlQueryModel * Clients::afficherC()
     return model;
 }
 
-bool Clients::supprimerC(int carte)
+bool clients::supprimerC(int carte)
 {
     QSqlQuery q;
     q.prepare("Delete from client where carte_fidelite = :carte_fidelite");
@@ -60,7 +61,7 @@ bool Clients::supprimerC(int carte)
     return    q.exec();
 }
 
-QSqlQueryModel * Clients::afficher_ComboBox2()
+QSqlQueryModel * clients::afficher_ComboBox2()
 {
     QSqlQueryModel * m= new QSqlQueryModel();
 
@@ -70,7 +71,7 @@ QSqlQueryModel * Clients::afficher_ComboBox2()
     return m;
 }
 
-bool Clients::modifierC(QString redu)
+bool clients::modifierC(QString redu)
 {
     QSqlQuery q;
     //QString idc=QString::number(carte);
@@ -81,7 +82,7 @@ bool Clients::modifierC(QString redu)
        return    q.exec();
 }
 
-bool Clients::rechercheC(int carte)
+bool clients::rechercheC(int carte)
 {
     QSqlQuery q;
              QString idc=QString::number(carte);
@@ -94,7 +95,7 @@ bool Clients::rechercheC(int carte)
          return  true;
 }
 
-QSqlQueryModel * Clients::trierC()
+QSqlQueryModel * clients::trierC()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
         model->setQuery("select * from client order by carte_fidelite  ASC");
@@ -107,7 +108,7 @@ QSqlQueryModel * Clients::trierC()
         return model;
 }
 
-QSqlQueryModel * Clients::trierCdesc()
+QSqlQueryModel * clients::trierCdesc()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
         model->setQuery("select * from client order by carte_fidelite  DESC");

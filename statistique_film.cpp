@@ -6,7 +6,7 @@
 #include <QSqlQuery>
 
 statistique_film::statistique_film(QWidget *parent) :
-    QDialog(parent),
+    QWidget(parent),
     ui(new Ui::statistique_film)
 {
     ui->setupUi(this);
